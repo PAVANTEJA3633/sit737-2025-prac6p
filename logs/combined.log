@@ -1,0 +1,6 @@
+{"level":"info","message":"New add operation: 10 add 5 = 15","service":"calculator-microservice"}
+{"level":"info","message":"New add operation: 10 add 5 = 15","service":"calculator-microservice"}
+{"level":"info","message":"New add operation: 10 add 5 = 15","service":"calculator-microservice"}
+{"level":"info","message":"New subtract operation: 10 subtract 5 = 5","service":"calculator-microservice"}
+{"level":"info","message":"New multiply operation: 10 multiply 5 = 50","service":"calculator-microservice"}
+{"level":"info","message":"New divide operation: 10 divide 5 = 2","service":"calculator-microservice"}

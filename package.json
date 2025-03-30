@@ -1,0 +1,13 @@
+{
+  "name": "calculatormicroservice",
+  "version": "1.0.0",
+  "description": "A simple calculator microservice using Node.js and Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "winston": "^3.17.0"
+  }
+}
