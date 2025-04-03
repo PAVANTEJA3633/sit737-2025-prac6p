@@ -1,6 +1,5 @@
 const express = require('express');
 const winston = require('winston');
-
 const app = express();
 const PORT = 3000;
 
@@ -33,9 +32,15 @@ const calculate = (req, res, operation) => {
 
     let result;
     switch (operation) {
-        case 'add': result = num1 + num2; break;
-        case 'subtract': result = num1 - num2; break;
-        case 'multiply': result = num1 * num2; break;
+        case 'add':
+            result = num1 + num2;
+            break;
+        case 'subtract':
+            result = num1 - num2;
+            break;
+        case 'multiply':
+            result = num1 * num2;
+            break;
         case 'divide':
             if (num2 === 0) {
                 logger.error("Attempted division by zero.");
@@ -51,13 +56,28 @@ const calculate = (req, res, operation) => {
     res.json({ operation, num1, num2, result });
 };
 
-// Define API endpoints
+// API endpoints
 app.get('/add', (req, res) => calculate(req, res, 'add'));
 app.get('/subtract', (req, res) => calculate(req, res, 'subtract'));
 app.get('/multiply', (req, res) => calculate(req, res, 'multiply'));
 app.get('/divide', (req, res) => calculate(req, res, 'divide'));
 
+// Root route for default home page
+app.get('/', (req, res) => {
+    res.send(`
+        <h1>Welcome to the Calculator Microservice</h1>
+        <p>Use the following endpoints with query parameters ?num1= & num2= :</p>
+        <ul>
+            <li><a href="/add?num1=10&num2=5">/add</a></li>
+            <li><a href="/subtract?num1=10&num2=5">/subtract</a></li>
+            <li><a href="/multiply?num1=10&num2=5">/multiply</a></li>
+            <li><a href="/divide?num1=10&num2=5">/divide</a></li>
+        </ul>
+    `);
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log(`Calculator microservice running on http://localhost:${PORT}`);
 });
+
